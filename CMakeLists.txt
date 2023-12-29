@@ -1,7 +1,5 @@
-project(circularity)
 cmake_minimum_required(VERSION 3.2)
-#set(CMAKE_CXX_STANDARD 17)
-#set(CMAKE_CXX_STANDARD_REQUIRED ON)
+project(circularity)
 
 find_package(Boost)
 if (${Boost_VERSION_STRING} LESS "1.66")
@@ -9,6 +7,13 @@ if (${Boost_VERSION_STRING} LESS "1.66")
 else ()
    set(BOOST_TEST_LIB "unit_test_framework")
 endif ()
+find_package(Boost COMPONENTS system ${BOOST_TEST_LIB} REQUIRED)
+add_compile_options(-Wno-overflow -Wall -Wextra -Wpedantic -Werror)
 
-add_subdirectory(based)
-add_subdirectory(aligned)
+add_executable(autotest_aligned
+   aligned_autotest.cpp)
+target_link_libraries(autotest_aligned ${Boost_LIBRARIES})
+
+add_executable(autotest_based
+   based_autotest.cpp)
+target_link_libraries(autotest_based ${Boost_LIBRARIES})
