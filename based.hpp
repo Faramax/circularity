@@ -1,5 +1,7 @@
 #pragma once
 
+#include "based.ipp"
+
 namespace circular
 {
    //! Нормализация в положительную сторону. Результирующеее число будет в диапазоне [0; base)
