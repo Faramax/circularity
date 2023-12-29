@@ -32,10 +32,10 @@ namespace circular {
       return std::abs(l - r);
    }
 
-   //! Direction dependent distance strictly from point l to point r. We suppose that l always before r.
+   //! Direction dependent distance strictly from point l to point r.
    //! The result is in the range [0, std::numeric_limits<T>::max()].
    template <typename T>
-   T track(T const& l, T const& r)
+   T directed_distance(T const& l, T const& r)
    {
       return T{};
    }
