@@ -17,8 +17,11 @@ namespace circular
    T bi_distance(T const& a, T const& b, T const& base);
 
    //! Вычисляет расстояние между двумя углами. Входные углы в любом диапазоне. Ответ в диапазоне [0; Pi)
-   float angle_distance(float a, float b);
-   //! normalize_around_0, но для углов. Входные углы в любом диапазоне. Ответ в диапазоне [-Pi; Pi)
-   float normalize_angle(const float& a);
+   template <typename T>
+   T angle_distance(T const& a, T const& b);
+
+   //! normalize_around_0, для углов. Входные углы в любом диапазоне. Ответ в диапазоне [-Pi; Pi)
+   template <typename T>
+   T normalize_angle(const T& a);
 
 }

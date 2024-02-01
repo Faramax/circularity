@@ -3,8 +3,6 @@
 
 namespace circular
 {
-   static constexpr float pi = 3.14159265358979323846;
-
    namespace detail
    {
       template <typename T>
@@ -58,8 +56,17 @@ namespace circular
    }
 
    //! Вычисляет расстояние между двумя углами. Входные углы в любом диапазоне. Ответ в диапазоне [0; Pi)
-   float angle_distance(float a, float b)
+   template <typename T>
+   T angle_distance(T const& a, T const& b)
    {
-      return bi_distance(a, b, 2*pi);
+      static_assert(std::is_floating_point<T>::value, "angle_distance: T must be floating point");
+      return bi_distance(a, b, 2*static_cast<T>(M_PI));
+   }
+
+   template <typename T>
+   T normalize_angle(const T& a)
+   {
+      static_assert(std::is_floating_point<T>::value, "normalize_angle: T must be floating point");
+      return normalize_around_0(a, 2*static_cast<T>(M_PI));
    }
 }

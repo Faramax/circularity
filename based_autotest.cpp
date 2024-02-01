@@ -5,27 +5,27 @@
 BOOST_AUTO_TEST_CASE(angle_distance_test)
 {
    using namespace circular;
-   BOOST_CHECK_EQUAL(angle_distance(0,                   1),                   1);
-   BOOST_CHECK_EQUAL(angle_distance(1,                   0),                   1);
-   BOOST_CHECK_EQUAL(angle_distance(0,                  -1),                   1);
-   BOOST_CHECK_EQUAL(angle_distance(-1,                  0),                   1);
-   BOOST_CHECK_EQUAL(angle_distance(-0.5,                0.5),                 1);
-   BOOST_CHECK_EQUAL(angle_distance(0.5,                -0.5),                 1);
+   BOOST_CHECK_EQUAL(angle_distance( 0.f,                  1.f),                 1);
+   BOOST_CHECK_EQUAL(angle_distance( 1.f,                  0.f),                 1);
+   BOOST_CHECK_EQUAL(angle_distance( 0.f,                 -1.f),                 1);
+   BOOST_CHECK_EQUAL(angle_distance(-1.f,                  0.f),                 1);
+   BOOST_CHECK_EQUAL(angle_distance(-0.5f,                 0.5f),                1);
+   BOOST_CHECK_EQUAL(angle_distance( 0.5f,                -0.5f),                1);
 
-   BOOST_CHECK_EQUAL(angle_distance(2*float(M_PI),       1),                   1);
-   BOOST_CHECK_EQUAL(angle_distance(1,                   2*float(M_PI)),       1);
-   BOOST_CHECK_EQUAL(angle_distance(0,                   2*float(M_PI) - 1),   1);
-   BOOST_CHECK_EQUAL(angle_distance(2*float(M_PI) - 1,   0),                   1);
-   BOOST_CHECK_EQUAL(angle_distance(2*float(M_PI)-0.5f,   0.5f),               1);
-   BOOST_CHECK_EQUAL(angle_distance(0.5f,                2*float(M_PI)-0.5f), 1);
+   BOOST_CHECK_EQUAL(angle_distance(2*float(M_PI),         1.f),                 1);
+   BOOST_CHECK_EQUAL(angle_distance(1.f,                   2*float(M_PI)),       1);
+   BOOST_CHECK_EQUAL(angle_distance(0.f,                   2*float(M_PI) - 1),   1);
+   BOOST_CHECK_EQUAL(angle_distance(2*float(M_PI) - 1,     0.f),                 1);
+   BOOST_CHECK_EQUAL(angle_distance(2*float(M_PI)-0.5f,    0.5f),                1);
+   BOOST_CHECK_EQUAL(angle_distance(0.5f,                  2*float(M_PI)-0.5f),  1);
 
-   BOOST_CHECK_CLOSE(angle_distance(0,                   float(M_PI) + 1),     float(M_PI) - 1, 0.1f);
-   BOOST_CHECK_CLOSE(angle_distance(float(M_PI) + 1,     0),                   float(M_PI) - 1, 0.1f);
+   BOOST_CHECK_CLOSE(angle_distance(0.f,                   float(M_PI) + 1),     float(M_PI) - 1, 0.1f);
+   BOOST_CHECK_CLOSE(angle_distance(float(M_PI) + 1,       0.f),                 float(M_PI) - 1, 0.1f);
 
-   BOOST_CHECK_EQUAL(angle_distance(0.5,                 1.5),                 1);
-   BOOST_CHECK_EQUAL(angle_distance(1.5,                 0.5),                 1);
-   BOOST_CHECK_EQUAL(angle_distance(-0.5,               -1.5),                 1);
-   BOOST_CHECK_EQUAL(angle_distance(-1.5,               -0.5),                 1);
+   BOOST_CHECK_EQUAL(angle_distance(0.5f,                  1.5f),                1);
+   BOOST_CHECK_EQUAL(angle_distance(1.5f,                  0.5f),                1);
+   BOOST_CHECK_EQUAL(angle_distance(-0.5f,                -1.5f),                1);
+   BOOST_CHECK_EQUAL(angle_distance(-1.5f,                -0.5f),                1);
 }
 
 
